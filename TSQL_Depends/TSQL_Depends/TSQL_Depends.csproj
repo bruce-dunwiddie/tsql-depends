@@ -44,9 +44,17 @@
   <ItemGroup>
     <Compile Include="DependencyParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Scripts\GetServers.sql" />
+    <EmbeddedResource Include="Scripts\GetSessionProperties.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\GetColumns.sql" />
+    <EmbeddedResource Include="Scripts\GetDatabases.sql" />
+    <EmbeddedResource Include="Scripts\GetObjects.sql" />
+    <EmbeddedResource Include="Scripts\GetServerProperties.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

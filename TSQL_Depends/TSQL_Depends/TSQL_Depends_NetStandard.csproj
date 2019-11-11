@@ -9,6 +9,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Scripts\GetColumns.sql" />
+    <None Remove="Scripts\GetDatabases.sql" />
+    <None Remove="Scripts\GetObjects.sql" />
+    <None Remove="Scripts\GetServerProperties.sql" />
+    <None Remove="Scripts\GetServers.sql" />
+    <None Remove="Scripts\GetSessionProperties.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\GetColumns.sql" />
+    <EmbeddedResource Include="Scripts\GetDatabases.sql" />
+    <EmbeddedResource Include="Scripts\GetObjects.sql" />
+    <EmbeddedResource Include="Scripts\GetServerProperties.sql" />
+    <EmbeddedResource Include="Scripts\GetServers.sql" />
+    <EmbeddedResource Include="Scripts\GetSessionProperties.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
 
