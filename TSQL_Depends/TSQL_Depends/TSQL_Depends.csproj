@@ -31,6 +31,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>TSQL_Depends.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,11 +50,13 @@
   <ItemGroup>
     <Compile Include="DependencyParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Scripts.cs" />
     <EmbeddedResource Include="Scripts\GetServers.sql" />
     <EmbeddedResource Include="Scripts\GetSessionProperties.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
+    <None Include="TSQL_Depends.snk" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\GetColumns.sql" />

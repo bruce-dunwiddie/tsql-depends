@@ -1,4 +1,8 @@
 ﻿/.vs
 /TSQL_Depends/.vs/
+/TSQL_Depends/packages
 /TSQL_Depends/TSQL_Depends/bin
 /TSQL_Depends/TSQL_Depends/obj
+/TSQL_Depends/TSQL_Depends/project.lock.json
+/TSQL_Depends/Tests/bin
+/TSQL_Depends/Tests/obj

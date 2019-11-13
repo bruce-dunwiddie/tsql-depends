@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>TSQL.Depends</RootNamespace>
+    <AssemblyName>TSQL_Depends</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>TSQL_Depends.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="project.json" />
+    <None Remove="project.lock.json" />
     <None Remove="Scripts\GetColumns.sql" />
     <None Remove="Scripts\GetDatabases.sql" />
     <None Remove="Scripts\GetObjects.sql" />
