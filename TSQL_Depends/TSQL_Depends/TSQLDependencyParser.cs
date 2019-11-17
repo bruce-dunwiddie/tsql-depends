@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace TSQL.Depends
 {
-	public class DependencyParser
+	public class TSQLDependencyParser
 	{
-		public DependencyParser(string connectionString)
+		public TSQLDependencyParser(string connectionString)
 		{
 			// https://eng.uber.com/queryparser/ explains possibilities out of a similar effort
 

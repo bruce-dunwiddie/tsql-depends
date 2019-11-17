@@ -1,8 +1,7 @@
 ﻿SELECT
 	c.[object_id],
 	c.[name] AS column_name,
-	c.column_id,
-	c.collation_name
+	c.column_id
 FROM
 	sys.columns AS c
 WHERE
