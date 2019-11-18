@@ -8,6 +8,10 @@ namespace TSQL.Depends.Models
 {
 	internal class TSQLColumn
 	{
+		public int ObjectID { get; set; }
 
+		public string Name { get; set; }
+
+		public int ColumnID { get; set; }
 	}
 }

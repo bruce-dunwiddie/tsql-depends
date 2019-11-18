@@ -20,7 +20,8 @@ namespace TSQL.Depends
 
 		}
 
-		public TSQLObject Resolve(List<TSQLToken> tokens)
+		public TSQLObject Resolve(
+			List<TSQLToken> tokens)
 		{
 			return null;
 		}

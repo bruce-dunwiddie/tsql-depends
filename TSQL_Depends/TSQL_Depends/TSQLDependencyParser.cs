@@ -5,11 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using TSQL.Depends.Models;
+
 namespace TSQL.Depends
 {
 	public class TSQLDependencyParser
 	{
-		public TSQLDependencyParser(string connectionString)
+		public TSQLDependencyParser(
+			string connectionString)
 		{
 			// https://eng.uber.com/queryparser/ explains possibilities out of a similar effort
 
@@ -17,10 +20,14 @@ namespace TSQL.Depends
 			// invalid references
 			// type checking
 
-			using (SqlConnection conn = new SqlConnection(connectionString))
-			{
-				conn.Open();
-			}
+			ModelBuilder builder = new ModelBuilder(
+				connectionString);
+
+			TSQLReferenceResolver resolver = new TSQLReferenceResolver(
+				builder.GetServerProperties(),
+				builder.GetSessionProperties(),
+				builder.GetServers(),
+				builder.GetDatabases());
 		}
 	}
 }

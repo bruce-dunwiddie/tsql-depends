@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ModelBuilder.cs" />
     <Compile Include="Models\TSQLObjectType.cs" />
     <Compile Include="TSQLDependencyParser.cs" />
     <Compile Include="Models\TSQLColumn.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="Models\TSQLServerProperties.cs" />
     <Compile Include="Models\TSQLSessionProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scripts\Scripts.cs" />
+    <Compile Include="Scripts\Script.cs" />
     <Compile Include="TSQLReferenceResolver.cs" />
     <EmbeddedResource Include="Scripts\GetServers.sql" />
     <EmbeddedResource Include="Scripts\GetSessionProperties.sql" />

@@ -18,6 +18,42 @@ namespace TSQL.Depends.Scripts
 			}
 		}
 
+		public static string GetDatabases
+		{
+			get
+			{
+				return GetScript("GetDatabases.sql");
+			}
+		}
+		public static string GetObjects
+		{
+			get
+			{
+				return GetScript("GetObjects.sql");
+			}
+		}
+		public static string GetServerProperties
+		{
+			get
+			{
+				return GetScript("GetServerProperties.sql");
+			}
+		}
+		public static string GetServers
+		{
+			get
+			{
+				return GetScript("GetServers.sql");
+			}
+		}
+		public static string GetSessionProperties
+		{
+			get
+			{
+				return GetScript("GetSessionProperties.sql");
+			}
+		}
+
 		private static string GetScript(string name)
 		{
 			using (StreamReader reader = new StreamReader(

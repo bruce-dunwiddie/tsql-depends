@@ -9,5 +9,9 @@ namespace TSQL.Depends.Models
 	internal class TSQLServerProperties
 	{
 		public string Collation { get; set; }
+
+		public int CollationCodePage { get; set; }
+
+		public bool CollationIgnoreCase { get; set; }
 	}
 }
