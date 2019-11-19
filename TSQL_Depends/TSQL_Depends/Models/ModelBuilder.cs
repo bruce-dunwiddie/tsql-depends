@@ -23,6 +23,8 @@ namespace TSQL.Depends.Models
 				Script.GetColumns,
 				(reader, model) =>
 					{
+						model.DatabaseName = databaseName;
+
 						model.ObjectID = (int)reader["object_id"];
 
 						model.Name = reader["column_name"].ToString();
@@ -58,6 +60,8 @@ namespace TSQL.Depends.Models
 				Script.GetObjects,
 				(reader, model) =>
 					{
+						model.DatabaseName = databaseName;
+
 						model.SchemaName = reader["schema_name"].ToString();
 
 						model.Name = reader["object_name"].ToString();

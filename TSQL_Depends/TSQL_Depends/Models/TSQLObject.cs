@@ -8,6 +8,8 @@ namespace TSQL.Depends.Models
 {
 	internal class TSQLObject
 	{
+		public string DatabaseName { get; set; }
+
 		public string SchemaName { get; set; }
 
 		public string Name { get; set; }
