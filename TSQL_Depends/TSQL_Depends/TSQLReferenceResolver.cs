@@ -17,7 +17,7 @@ namespace TSQL.Depends
 			List<TSQLServer> servers,
 			List<TSQLDatabase> databases)
 		{
-
+			
 		}
 
 		public TSQLObject Resolve(

@@ -8,6 +8,7 @@ namespace TSQL.Depends.Models
 {
 	internal class TSQLSessionProperties
 	{
+		public string DatabaseName { get; set; }
 		public string DefaultSchema { get; set; }
 	}
 }

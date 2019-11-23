@@ -103,6 +103,7 @@ namespace TSQL.Depends.Models
 				Script.GetSessionProperties,
 				(reader, model) =>
 				{
+					model.DatabaseName = reader["database_name"].ToString();
 					model.DefaultSchema = reader["default_schema_name"].ToString();
 				});
 		}
