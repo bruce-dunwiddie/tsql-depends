@@ -5,139 +5,139 @@ namespace TSQL.Depends.Models
         /// <summary>
         /// AF = Aggregate function (CLR)
         /// </summary>
-        CLRAggregateFunction,
+        CLRAggregateFunction = 0,
 
         /// <summary>
         /// C = CHECK constraint
         /// </summary>
-		CheckConstraint,
+		CheckConstraint = 1,
 
         /// <summary>
         /// D = DEFAULT (constraint or stand-alone)
         /// </summary>
-		Default,
+		Default = 2,
 
         /// <summary>
         /// F = FOREIGN KEY constraint
         /// </summary>
-		ForeignKey,
+		ForeignKey = 3,
 
         /// <summary>
         /// FN = SQL scalar function
         /// </summary>
-		ScalarFunction,
+		ScalarFunction = 4,
 
         /// <summary>
         /// FS = Assembly (CLR) scalar-function
         /// </summary>
-		CLRScalarFunction,
+		CLRScalarFunction = 5,
 
         /// <summary>
         /// FT = Assembly (CLR) table-valued function
         /// </summary>
-		CLRTableValuedFunction,
+		CLRTableValuedFunction = 6,
 
         /// <summary>
         /// IF = SQL inline table-valued function
         /// </summary>
-		InlineTableValuedFunction,
+		InlineTableValuedFunction = 7,
 
         /// <summary>
         /// IT = Internal table
         /// </summary>
-		InternalTable,
+		InternalTable = 8,
 
         /// <summary>
         /// P = SQL Stored Procedure
         /// </summary>
-		StoredProcedure,
+		StoredProcedure = 9,
 
         /// <summary>
         /// PC = Assembly (CLR) stored-procedure
         /// </summary>
-		CLRStoredProcedure,
+		CLRStoredProcedure = 10,
 
         /// <summary>
         /// PG = Plan guide
         /// </summary>
-		PlanGuide,
+		PlanGuide = 11,
 
         /// <summary>
         /// PK = PRIMARY KEY constraint
         /// </summary>
-		PrimaryKey,
+		PrimaryKey = 12,
 
         /// <summary>
         /// R = Rule (old-style, stand-alone)
         /// </summary>
-		Rule,
+		Rule = 13,
 
         /// <summary>
         /// RF = Replication-filter-procedure
         /// </summary>
-		ReplicationFilter,
+		ReplicationFilter = 14,
 
         /// <summary>
         /// S = System base table
         /// </summary>
-		SystemTable,
+		SystemTable = 15,
 
         /// <summary>
         /// SN = Synonym
         /// </summary>
-		Synonym,
+		Synonym = 16,
 
         /// <summary>
         /// SO = Sequence object
         /// </summary>
-		Sequence,
+		Sequence = 17,
 
         #region Applies to: SQL Server 2012 through SQL Server 2014.
 
         /// <summary>
         /// SQ = Service queue
         /// </summary>
-		ServiceQueue,
+		ServiceQueue = 18,
 
         /// <summary>
         /// TA = Assembly (CLR) DML trigger
         /// </summary>
-		CLRTrigger,
+		CLRTrigger = 19,
 
         /// <summary>
         /// TF = SQL table-valued-function
         /// </summary>
-		TableValuedFunction,
+		TableValuedFunction = 20,
 
         /// <summary>
         /// TR = SQL DML trigger
         /// </summary>
-		Trigger,
+		Trigger = 21,
 
         /// <summary>
         /// TT = Table type
         /// </summary>
-		TableType,
+		TableType = 22,
 
         /// <summary>
         /// U = Table (user-defined)
         /// </summary>
-		Table,
+		Table = 23,
 
         /// <summary>
         /// UQ = UNIQUE constraint
         /// </summary>
-		UniqueConstraint,
+		UniqueConstraint = 24,
 
         /// <summary>
         /// V = View
         /// </summary>
-		View,
+		View = 25,
 
         /// <summary>
         /// X = Extended stored procedure
         /// </summary>
-		ExtendedStoredProcedure,
+		ExtendedStoredProcedure = 26,
 
         #endregion
 
@@ -146,7 +146,7 @@ namespace TSQL.Depends.Models
         /// <summary>
         /// SP = Security Policy
         /// </summary>
-		SecurityPolicy
+		SecurityPolicy = 27
 
         #endregion
 	}
