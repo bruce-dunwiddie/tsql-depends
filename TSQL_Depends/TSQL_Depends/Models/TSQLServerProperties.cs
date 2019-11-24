@@ -8,6 +8,8 @@ namespace TSQL.Depends.Models
 {
 	internal class TSQLServerProperties
 	{
+		public string Name { get; set; }
+
 		public string Collation { get; set; }
 
 		public int CollationCodePage { get; set; }

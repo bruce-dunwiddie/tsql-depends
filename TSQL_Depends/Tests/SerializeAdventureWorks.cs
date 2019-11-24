@@ -25,6 +25,11 @@ namespace Tests
 			TSQLDatabase AdventureWorks =
 				model.GetDatabases().Where(db => db.Name == "AdventureWorks2017").Single();
 
+			foreach (TSQLObject obj in AdventureWorks.Objects)
+			{
+				obj.ServerName = "SampleServer";
+			}
+
 			using (StreamWriter file = File.CreateText("../../Databases/AdventureWorks2017.json"))
 			{
 				new JsonSerializer()

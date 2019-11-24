@@ -1,4 +1,5 @@
 ﻿SELECT
+	@@SERVERNAME as server_name,
 	s.collation_name AS collation_name,
 	-- https://docs.microsoft.com/en-us/sql/t-sql/functions/collation-functions-collationproperty-transact-sql?view=sql-server-ver15
 	CAST(COLLATIONPROPERTY(s.collation_name, 'CodePage') AS int) AS collation_code_page,

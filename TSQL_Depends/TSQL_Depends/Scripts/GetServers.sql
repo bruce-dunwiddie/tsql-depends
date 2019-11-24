@@ -1,5 +1,6 @@
 ﻿SELECT
-	s.[name] AS [server_name]
+	s.[name] AS [server_name],
+	s.is_linked
 FROM
 	sys.servers AS s
 WHERE

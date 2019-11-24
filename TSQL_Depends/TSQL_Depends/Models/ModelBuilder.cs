@@ -23,6 +23,8 @@ namespace TSQL.Depends.Models
 				Script.GetServerProperties,
 				(reader, model) =>
 				{
+					model.Name = reader["server_name"].ToString();
+
 					model.Collation = reader["collation_name"].ToString();
 
 					model.CollationCodePage = (int)reader["collation_code_page"];
@@ -38,6 +40,7 @@ namespace TSQL.Depends.Models
 				(reader, model) =>
 				{
 					model.DatabaseName = reader["database_name"].ToString();
+
 					model.DefaultSchema = reader["default_schema_name"].ToString();
 				});
 		}
@@ -49,6 +52,8 @@ namespace TSQL.Depends.Models
 				(reader, model) =>
 				{
 					model.Name = reader["server_name"].ToString();
+
+					model.IsLinked = (bool)reader["is_linked"];
 				});
 		}
 
@@ -99,8 +104,6 @@ namespace TSQL.Depends.Models
 				Script.GetColumns,
 				(reader, model) =>
 				{
-					model.DatabaseName = databaseName;
-
 					model.ObjectID = (int)reader["object_id"];
 
 					model.Name = reader["column_name"].ToString();
@@ -120,7 +123,7 @@ namespace TSQL.Depends.Models
 
 					model.SchemaName = reader["schema_name"].ToString();
 
-					model.Name = reader["object_name"].ToString();
+					model.Name = reader["synonym_name"].ToString();
 
 					model.ObjectID = (int)reader["object_id"];
 

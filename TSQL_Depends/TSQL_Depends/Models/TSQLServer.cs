@@ -9,5 +9,7 @@ namespace TSQL.Depends.Models
 	internal class TSQLServer
 	{
 		public string Name { get; set; }
+
+		public bool IsLinked { get; set; }
 	}
 }
