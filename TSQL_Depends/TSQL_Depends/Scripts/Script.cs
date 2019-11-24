@@ -25,6 +25,7 @@ namespace TSQL.Depends.Scripts
 				return GetScript("GetDatabases.sql");
 			}
 		}
+
 		public static string GetObjects
 		{
 			get
@@ -32,6 +33,7 @@ namespace TSQL.Depends.Scripts
 				return GetScript("GetObjects.sql");
 			}
 		}
+
 		public static string GetServerProperties
 		{
 			get
@@ -39,6 +41,7 @@ namespace TSQL.Depends.Scripts
 				return GetScript("GetServerProperties.sql");
 			}
 		}
+
 		public static string GetServers
 		{
 			get
@@ -46,11 +49,20 @@ namespace TSQL.Depends.Scripts
 				return GetScript("GetServers.sql");
 			}
 		}
+
 		public static string GetSessionProperties
 		{
 			get
 			{
 				return GetScript("GetSessionProperties.sql");
+			}
+		}
+
+		public static string GetSynonyms
+		{
+			get
+			{
+				return GetScript("GetSynonyms.sql");
 			}
 		}
 

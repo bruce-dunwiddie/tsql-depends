@@ -17,21 +17,39 @@ namespace TSQL.Depends.Models
 
 		private string ConnectionString { get; set; }
 
-		private List<TSQLColumn> GetColumns(string databaseName)
+		public TSQLServerProperties GetServerProperties()
 		{
-			return GetModelList<TSQLColumn>(
-				Script.GetColumns,
+			return GetModel<TSQLServerProperties>(
+				Script.GetServerProperties,
 				(reader, model) =>
-					{
-						model.DatabaseName = databaseName;
+				{
+					model.Collation = reader["collation_name"].ToString();
 
-						model.ObjectID = (int)reader["object_id"];
+					model.CollationCodePage = (int)reader["collation_code_page"];
 
-						model.Name = reader["column_name"].ToString();
+					model.CollationIgnoreCase = (bool)reader["collation_ignore_case"];
+				});
+		}
 
-						model.ColumnID = (int)reader["column_id"];
-					},
-				databaseName);
+		public TSQLSessionProperties GetSessionProperties()
+		{
+			return GetModel<TSQLSessionProperties>(
+				Script.GetSessionProperties,
+				(reader, model) =>
+				{
+					model.DatabaseName = reader["database_name"].ToString();
+					model.DefaultSchema = reader["default_schema_name"].ToString();
+				});
+		}
+
+		public List<TSQLServer> GetServers()
+		{
+			return GetModelList<TSQLServer>(
+				Script.GetServers,
+				(reader, model) =>
+				{
+					model.Name = reader["server_name"].ToString();
+				});
 		}
 
 		public List<TSQLDatabase> GetDatabases()
@@ -51,6 +69,8 @@ namespace TSQL.Depends.Models
 						model.Objects = GetObjects(model.Name);
 
 						model.Columns = GetColumns(model.Name);
+
+						model.Synonyms = GetSynonyms(model.Name);
 					});
 		}
 
@@ -73,39 +93,49 @@ namespace TSQL.Depends.Models
 				databaseName);
 		}
 
-		public TSQLServerProperties GetServerProperties()
+		private List<TSQLColumn> GetColumns(string databaseName)
 		{
-			return GetModel<TSQLServerProperties>(
-				Script.GetServerProperties,
-				(reader, model) =>
-					{
-						model.Collation = reader["collation_name"].ToString();
-
-						model.CollationCodePage = (int)reader["collation_code_page"];
-
-						model.CollationIgnoreCase = (bool)reader["collation_ignore_case"];
-					});
-		}
-
-		public List<TSQLServer> GetServers()
-		{
-			return GetModelList<TSQLServer>(
-				Script.GetServers,
+			return GetModelList<TSQLColumn>(
+				Script.GetColumns,
 				(reader, model) =>
 				{
-					model.Name = reader["server_name"].ToString();
-				});
+					model.DatabaseName = databaseName;
+
+					model.ObjectID = (int)reader["object_id"];
+
+					model.Name = reader["column_name"].ToString();
+
+					model.ColumnID = (int)reader["column_id"];
+				},
+				databaseName);
 		}
 
-		public TSQLSessionProperties GetSessionProperties()
+		private List<TSQLSynonym> GetSynonyms(string databaseName)
 		{
-			return GetModel<TSQLSessionProperties>(
-				Script.GetSessionProperties,
+			return GetModelList<TSQLSynonym>(
+				Script.GetSynonyms,
 				(reader, model) =>
 				{
-					model.DatabaseName = reader["database_name"].ToString();
-					model.DefaultSchema = reader["default_schema_name"].ToString();
-				});
+					model.DatabaseName = databaseName;
+
+					model.SchemaName = reader["schema_name"].ToString();
+
+					model.Name = reader["object_name"].ToString();
+
+					model.ObjectID = (int)reader["object_id"];
+
+					TSQLMultiPartIdentifier baseObject = new TSQLIdentifierParser().Parse(
+						reader["base_object_name"].ToString());
+
+					model.BaseServerName = baseObject.ServerName;
+
+					model.BaseDatabaseName = baseObject.DatabaseName;
+
+					model.BaseSchemaName = baseObject.SchemaName;
+
+					model.BaseObjectName = baseObject.ObjectName;
+				},
+				databaseName);
 		}
 
 		private T GetModel<T>(

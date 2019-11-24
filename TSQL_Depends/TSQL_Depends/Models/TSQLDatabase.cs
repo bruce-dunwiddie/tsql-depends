@@ -16,8 +16,10 @@ namespace TSQL.Depends.Models
 
 		public bool CollationIgnoreCase { get; set; }
 
-		public List<TSQLObject> Objects;
+		public List<TSQLObject> Objects { get; set; }
 
-		public List<TSQLColumn> Columns;
+		public List<TSQLColumn> Columns { get; set; }
+
+		public List<TSQLSynonym> Synonyms { get; set; }
 	}
 }

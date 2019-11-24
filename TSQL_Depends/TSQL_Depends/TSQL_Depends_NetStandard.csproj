@@ -22,6 +22,7 @@
     <None Remove="Scripts\GetServerProperties.sql" />
     <None Remove="Scripts\GetServers.sql" />
     <None Remove="Scripts\GetSessionProperties.sql" />
+    <None Remove="Scripts\GetSynonyms.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,7 @@
     <EmbeddedResource Include="Scripts\GetServerProperties.sql" />
     <EmbeddedResource Include="Scripts\GetServers.sql" />
     <EmbeddedResource Include="Scripts\GetSessionProperties.sql" />
+    <EmbeddedResource Include="Scripts\GetSynonyms.sql" />
   </ItemGroup>
 
   <ItemGroup>
