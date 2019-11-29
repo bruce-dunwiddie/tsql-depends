@@ -62,8 +62,13 @@ namespace Tests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///  &quot;Name&quot;: &quot;AdventureWorks2017&quot;,
+        ///  &quot;Collation&quot;: &quot;SQL_Latin1_General_CP1_CI_AS&quot;,
+        ///  &quot;CollationCodePage&quot;: 1252,
+        ///  &quot;CollationIgnoreCase&quot;: true,
         ///  &quot;Objects&quot;: [
         ///    {
+        ///      &quot;ServerName&quot;: &quot;SampleServer&quot;,
         ///      &quot;DatabaseName&quot;: &quot;AdventureWorks2017&quot;,
         ///      &quot;SchemaName&quot;: &quot;dbo&quot;,
         ///      &quot;Name&quot;: &quot;AWBuildVersion&quot;,
@@ -71,23 +76,33 @@ namespace Tests.Properties {
         ///      &quot;Type&quot;: 23
         ///    },
         ///    {
+        ///      &quot;ServerName&quot;: &quot;SampleServer&quot;,
         ///      &quot;DatabaseName&quot;: &quot;AdventureWorks2017&quot;,
         ///      &quot;SchemaName&quot;: &quot;dbo&quot;,
-        ///      &quot;Name&quot;: &quot;DatabaseLog&quot;,
-        ///      &quot;ObjectID&quot;: 901578250,
-        ///      &quot;Type&quot;: 23
-        ///    },
-        ///    {
-        ///      &quot;DatabaseName&quot;: &quot;AdventureWorks2017&quot;,
-        ///      &quot;SchemaName&quot;: &quot;dbo&quot;,
-        ///      &quot;Name&quot;: &quot;ErrorLog&quot;,
-        ///      &quot;ObjectID&quot;: 933578364,
-        ///      &quot;Type&quot;: 23
-        ///   [rest of string was truncated]&quot;;.
+        ///      &quot;Name&quot;: &quot;DatabaseLog [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AdventureWorks2017 {
             get {
                 return ResourceManager.GetString("AdventureWorks2017", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ALTER PROCEDURE [dbo].[uspGetBillOfMaterials]
+        ///    @StartProductID [int],
+        ///    @CheckDate [datetime]
+        ///AS
+        ///BEGIN
+        ///    SET NOCOUNT ON;
+        ///
+        ///    -- Use recursive query to generate a multi-level Bill of Material (i.e. all level 1 
+        ///    -- components of a level 0 assembly, all level 2 components of a level 1 assembly)
+        ///    -- The CheckDate eliminates any components that are no longer used in the product on this date.
+        ///    WITH [BOM_cte]([ProductAssemblyID], [ComponentID], [ComponentDesc], [PerAssemblyQty], [Standa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string dbo_uspGetBillOfMaterials {
+            get {
+                return ResourceManager.GetString("dbo_uspGetBillOfMaterials", resourceCulture);
             }
         }
     }

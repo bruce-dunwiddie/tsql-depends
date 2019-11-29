@@ -20,6 +20,6 @@ namespace TSQL.Depends
 
 		public int ObjectID { get; set; }
 
-		//public TSQLObjectType Type { get; set; }
+		public TSQLObjectType Type { get; set; }
 	}
 }
