@@ -54,7 +54,35 @@ namespace TSQL.Depends
 									currentReference = new List<TSQLToken>();
 								}
 
-								if (tokenizer.Current.Type != TSQLTokenType.IncompleteIdentifier)
+								if (tokenizer.Current.Type != TSQLTokenType.IncompleteIdentifier &&
+									(
+										lastToken is null ||
+										(
+											// if the last token was an identifier
+											// and this token is an identifier
+											// then this is an alias and don't add it
+											lastToken.Type != TSQLTokenType.Identifier &&
+											lastToken.Type != TSQLTokenType.SystemIdentifier &&
+											
+											// if the last token was AS
+											// and this token is an identifier
+											// then this is an alias and don't add it
+											!lastToken.IsKeyword(TSQLKeywords.AS) &&
+
+											// if the last token was a variable
+											// then this is a data type in a proc/function definition
+											// and don't add it
+											lastToken.Type != TSQLTokenType.Variable &&
+
+											// if the last token was SET
+											// then this is a SET option keyword and don't add it
+											!lastToken.IsKeyword(TSQLKeywords.SET) &&
+
+											// if the last token was WITH
+											// then this is a CTE definition and don't add it
+											!lastToken.IsKeyword(TSQLKeywords.WITH)
+										)
+									))
 								{
 									currentReference.Add(tokenizer.Current);
 								}
