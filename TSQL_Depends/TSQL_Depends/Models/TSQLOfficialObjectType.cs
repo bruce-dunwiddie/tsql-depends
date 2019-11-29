@@ -1,6 +1,6 @@
 namespace TSQL.Depends.Models
 {
-	internal enum TSQLObjectType
+	internal enum TSQLOfficialObjectType
 	{
         /// <summary>
         /// AF = Aggregate function (CLR)
@@ -146,8 +146,18 @@ namespace TSQL.Depends.Models
         /// <summary>
         /// SP = Security Policy
         /// </summary>
-		SecurityPolicy = 27
+		SecurityPolicy = 27,
 
-        #endregion
+		#endregion
+
+		/// <summary>
+		/// EC = Edge constraint
+		/// </summary>
+		EdgeConstraint = 28,
+
+		/// <summary>
+		/// ET = External Table
+		/// </summary>
+		ExternalTable = 29
 	}
 }

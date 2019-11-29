@@ -54,7 +54,7 @@ namespace Tests
 			Assert.AreEqual("AdventureWorks2017", referencedObject.DatabaseName);
 			Assert.AreEqual("Production", referencedObject.SchemaName);
 			Assert.AreEqual("Product", referencedObject.Name);
-			Assert.AreEqual(TSQLObjectType.Table, referencedObject.Type);
+			Assert.AreEqual(TSQLOfficialObjectType.Table, referencedObject.Type);
 			Assert.AreEqual(482100758, referencedObject.ObjectID);
 		}
 
@@ -89,7 +89,7 @@ namespace Tests
 			Assert.AreEqual("AdventureWorks2017", referencedObject.DatabaseName);
 			Assert.AreEqual("Production", referencedObject.SchemaName);
 			Assert.AreEqual("Product", referencedObject.Name);
-			Assert.AreEqual(TSQLObjectType.Table, referencedObject.Type);
+			Assert.AreEqual(TSQLOfficialObjectType.Table, referencedObject.Type);
 			Assert.AreEqual(482100758, referencedObject.ObjectID);
 		}
 
@@ -124,7 +124,7 @@ namespace Tests
 			Assert.AreEqual("AdventureWorks2017", referencedObject.DatabaseName);
 			Assert.AreEqual("Production", referencedObject.SchemaName);
 			Assert.AreEqual("Product", referencedObject.Name);
-			Assert.AreEqual(TSQLObjectType.Table, referencedObject.Type);
+			Assert.AreEqual(TSQLOfficialObjectType.Table, referencedObject.Type);
 			Assert.AreEqual(482100758, referencedObject.ObjectID);
 		}
 
@@ -159,7 +159,7 @@ namespace Tests
 			Assert.AreEqual("AdventureWorks2017", referencedObject.DatabaseName);
 			Assert.AreEqual("Production", referencedObject.SchemaName);
 			Assert.AreEqual("Product", referencedObject.Name);
-			Assert.AreEqual(TSQLObjectType.Table, referencedObject.Type);
+			Assert.AreEqual(TSQLOfficialObjectType.Table, referencedObject.Type);
 			Assert.AreEqual(482100758, referencedObject.ObjectID);
 		}
 
@@ -198,7 +198,7 @@ namespace Tests
 								SchemaName = "dbo",
 								Name = "Test",
 								ObjectID = 123,
-								Type = TSQLObjectType.Table
+								Type = TSQLOfficialObjectType.Table
 							}
 						}
 					}
@@ -210,7 +210,7 @@ namespace Tests
 			Assert.AreEqual("TestDB", referencedObject.DatabaseName);
 			Assert.AreEqual("dbo", referencedObject.SchemaName);
 			Assert.AreEqual("Test", referencedObject.Name);
-			Assert.AreEqual(TSQLObjectType.Table, referencedObject.Type);
+			Assert.AreEqual(TSQLOfficialObjectType.Table, referencedObject.Type);
 			Assert.AreEqual(123, referencedObject.ObjectID);
 		}
 
@@ -248,7 +248,7 @@ namespace Tests
 								SchemaName = "dbo",
 								Name = "Test",
 								ObjectID = 123,
-								Type = TSQLObjectType.Table
+								Type = TSQLOfficialObjectType.Table
 							}
 						}
 					}
@@ -297,7 +297,7 @@ namespace Tests
 								SchemaName = "dbo",
 								Name = "Test",
 								ObjectID = 123,
-								Type = TSQLObjectType.Table
+								Type = TSQLOfficialObjectType.Table
 							}
 						}
 					}

@@ -188,39 +188,43 @@ namespace TSQL.Depends.Models
 			return model;
 		}
 
-		private static Dictionary<string, TSQLObjectType> objectTypeParseMappings = new Dictionary<string, TSQLObjectType>()
+		// https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=sql-server-ver15
+
+		private static Dictionary<string, TSQLOfficialObjectType> objectTypeParseMappings = new Dictionary<string, TSQLOfficialObjectType>()
 			{
-				{"AF", TSQLObjectType.CLRAggregateFunction},
-				{"C", TSQLObjectType.CheckConstraint},
-				{"D", TSQLObjectType.Default},
-				{"F", TSQLObjectType.ForeignKey},
-				{"FN", TSQLObjectType.ScalarFunction},
-				{"FS", TSQLObjectType.CLRScalarFunction},
-				{"FT", TSQLObjectType.CLRTableValuedFunction},
-				{"IF", TSQLObjectType.InlineTableValuedFunction},
-				{"IT", TSQLObjectType.InternalTable},
-				{"P", TSQLObjectType.StoredProcedure},
-				{"PC", TSQLObjectType.CLRStoredProcedure},
-				{"PG", TSQLObjectType.PlanGuide},
-				{"PK", TSQLObjectType.PrimaryKey},
-				{"R", TSQLObjectType.Rule},
-				{"RF", TSQLObjectType.ReplicationFilter},
-				{"S", TSQLObjectType.SystemTable},
-				{"SN", TSQLObjectType.Synonym},
-				{"SO", TSQLObjectType.Sequence},
-				{"SQ", TSQLObjectType.ServiceQueue},
-				{"TA", TSQLObjectType.CLRTrigger},
-				{"TF", TSQLObjectType.TableValuedFunction},
-				{"TR", TSQLObjectType.Trigger},
-				{"TT", TSQLObjectType.TableType},
-				{"U", TSQLObjectType.Table},
-				{"UQ", TSQLObjectType.UniqueConstraint},
-				{"V", TSQLObjectType.View},
-				{"X", TSQLObjectType.ExtendedStoredProcedure},
-				{"SP", TSQLObjectType.SecurityPolicy}
+				{"AF", TSQLOfficialObjectType.CLRAggregateFunction},
+				{"C", TSQLOfficialObjectType.CheckConstraint},
+				{"D", TSQLOfficialObjectType.Default},
+				{"F", TSQLOfficialObjectType.ForeignKey},
+				{"FN", TSQLOfficialObjectType.ScalarFunction},
+				{"FS", TSQLOfficialObjectType.CLRScalarFunction},
+				{"FT", TSQLOfficialObjectType.CLRTableValuedFunction},
+				{"IF", TSQLOfficialObjectType.InlineTableValuedFunction},
+				{"IT", TSQLOfficialObjectType.InternalTable},
+				{"P", TSQLOfficialObjectType.StoredProcedure},
+				{"PC", TSQLOfficialObjectType.CLRStoredProcedure},
+				{"PG", TSQLOfficialObjectType.PlanGuide},
+				{"PK", TSQLOfficialObjectType.PrimaryKey},
+				{"R", TSQLOfficialObjectType.Rule},
+				{"RF", TSQLOfficialObjectType.ReplicationFilter},
+				{"S", TSQLOfficialObjectType.SystemTable},
+				{"SN", TSQLOfficialObjectType.Synonym},
+				{"SO", TSQLOfficialObjectType.Sequence},
+				{"SQ", TSQLOfficialObjectType.ServiceQueue},
+				{"TA", TSQLOfficialObjectType.CLRTrigger},
+				{"TF", TSQLOfficialObjectType.TableValuedFunction},
+				{"TR", TSQLOfficialObjectType.Trigger},
+				{"TT", TSQLOfficialObjectType.TableType},
+				{"U", TSQLOfficialObjectType.Table},
+				{"UQ", TSQLOfficialObjectType.UniqueConstraint},
+				{"V", TSQLOfficialObjectType.View},
+				{"X", TSQLOfficialObjectType.ExtendedStoredProcedure},
+				{"SP", TSQLOfficialObjectType.SecurityPolicy},
+				{"EC", TSQLOfficialObjectType.EdgeConstraint},
+				{"ET", TSQLOfficialObjectType.ExternalTable}
 			};
 
-		private static TSQLObjectType ParseAsObjectType(string type)
+		private static TSQLOfficialObjectType ParseAsObjectType(string type)
 		{
 			return objectTypeParseMappings[type.Trim()];
 		}

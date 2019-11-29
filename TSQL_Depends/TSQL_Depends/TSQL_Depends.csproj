@@ -51,9 +51,13 @@
     <Compile Include="TSQLDependencyParser.cs" />
     <Compile Include="TSQLIdentifierParser.cs" />
     <Compile Include="TSQLMultiPartIdentifier.cs" />
+    <Compile Include="TSQLObjectDependency.cs" />
+    <Compile Include="TSQLObjectType.cs" />
+    <Compile Include="TSQLObjectTypeMapper.cs" />
+    <Compile Include="TSQLReferenceFinder.cs" />
     <Compile Include="TSQLReferenceResolver.cs" />
     <Compile Include="Models\ModelBuilder.cs" />
-    <Compile Include="Models\TSQLObjectType.cs" />
+    <Compile Include="Models\TSQLOfficialObjectType.cs" />
     <Compile Include="Models\TSQLSynonym.cs" />
     <Compile Include="Models\TSQLColumn.cs" />
     <Compile Include="Models\TSQLDatabase.cs" />

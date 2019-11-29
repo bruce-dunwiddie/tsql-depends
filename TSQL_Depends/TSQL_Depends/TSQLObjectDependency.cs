@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TSQL.Depends.Models
+using TSQL.Depends.Models;
+
+namespace TSQL.Depends
 {
-	internal class TSQLObject
+	public class TSQLObjectDependency
 	{
 		public string ServerName { get; set; }
 
@@ -18,6 +20,6 @@ namespace TSQL.Depends.Models
 
 		public int ObjectID { get; set; }
 
-		public TSQLOfficialObjectType Type { get; set; }
+		//public TSQLObjectType Type { get; set; }
 	}
 }
