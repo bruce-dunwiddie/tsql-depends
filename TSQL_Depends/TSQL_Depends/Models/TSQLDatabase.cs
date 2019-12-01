@@ -18,8 +18,8 @@ namespace TSQL.Depends.Models
 
 		public List<TSQLObject> Objects { get; set; }
 
-		public List<TSQLColumn> Columns { get; set; }
+		//public List<TSQLColumn> Columns { get; set; }
 
-		public List<TSQLSynonym> Synonyms { get; set; }
+		//public List<TSQLSynonym> Synonyms { get; set; }
 	}
 }

@@ -73,9 +73,9 @@ namespace TSQL.Depends.Models
 
 						model.Objects = GetObjects(model.Name);
 
-						model.Columns = GetColumns(model.Name);
+						//model.Columns = GetColumns(model.Name);
 
-						model.Synonyms = GetSynonyms(model.Name);
+						//model.Synonyms = GetSynonyms(model.Name);
 					});
 		}
 

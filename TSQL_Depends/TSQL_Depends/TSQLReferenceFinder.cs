@@ -80,7 +80,11 @@ namespace TSQL.Depends
 
 											// if the last token was WITH
 											// then this is a CTE definition and don't add it
-											!lastToken.IsKeyword(TSQLKeywords.WITH)
+											!lastToken.IsKeyword(TSQLKeywords.WITH) &&
+
+											// if the last token was USE
+											// then this is a database name and don't add it
+											!lastToken.IsKeyword(TSQLKeywords.USE)
 										)
 									))
 								{
