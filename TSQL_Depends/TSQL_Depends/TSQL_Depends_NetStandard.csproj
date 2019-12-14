@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -26,8 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="pack.bat" />
     <None Remove="project.json" />
     <None Remove="project.lock.json" />
+    <None Remove="*.nupkg" />
     <None Remove="Scripts\GetColumns.sql" />
     <None Remove="Scripts\GetDatabases.sql" />
     <None Remove="Scripts\GetObjects.sql" />
@@ -35,6 +37,9 @@
     <None Remove="Scripts\GetServers.sql" />
     <None Remove="Scripts\GetSessionProperties.sql" />
     <None Remove="Scripts\GetSynonyms.sql" />
+    <None Remove="TSQL_Depends.nuspec" />
+    <None Remove="TSQL_Depends.snk" />
+    <None Remove="TSQL_Depends.xml" />
   </ItemGroup>
 
   <ItemGroup>
