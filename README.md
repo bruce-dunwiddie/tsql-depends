@@ -5,6 +5,19 @@ Available on Nuget, [TSQL.Depends](https://www.nuget.org/packages/TSQL.Depends/)
 
     Install-Package TSQL.Depends
     
+[![NuGet](https://img.shields.io/nuget/dt/TSQL.Depends.svg)](https://www.nuget.org/packages/TSQL.Depends/)
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+## Current Features
+- Full T-SQL token implementation.
+- Ignores comments.
+- Only returns resolved objects.
+- Resolves objects using database, server, and connection settings for case sensitivity and default schema.
+- Resolves using 1, 2, or 3 part names.
+- 4 part names are assumed valid if matching an existing linked server.
+- .Net Framework 4.0+ and .Net Core 2.0+ compatible.
+    
 ## Example Dependency Parsing
 
 dbo.uspGetBillOfMaterials:
@@ -101,3 +114,6 @@ StoredProcedure AdventureWorks2017.dbo.uspGetBillOfMaterials
 Table AdventureWorks2017.Production.BillOfMaterials
 Table AdventureWorks2017.Production.Product
 ```
+
+## Future Additions
+- Resolve dependencies down to column level.
