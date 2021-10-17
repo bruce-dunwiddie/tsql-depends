@@ -29,10 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="pack.bat" />
+    <None Remove="*.bat" />
     <None Remove="project.json" />
     <None Remove="project.lock.json" />
     <None Remove="*.nupkg" />
+    <None Remove="*.snupkg" />
     <None Remove="Scripts\GetColumns.sql" />
     <None Remove="Scripts\GetDatabases.sql" />
     <None Remove="Scripts\GetObjects.sql" />

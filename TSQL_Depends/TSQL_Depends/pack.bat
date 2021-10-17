@@ -1,2 +1,2 @@
-nuget pack TSQL_Depends.nuspec -Symbols
+nuget pack TSQL_Depends.nuspec -Symbols -SymbolPackageFormat snupkg
 pause
