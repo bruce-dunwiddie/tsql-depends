@@ -124,13 +124,23 @@ namespace TSQL.Depends
 					case TSQLTokenType.SystemVariable:
 					case TSQLTokenType.Variable:
 						{
-							// signals the end of an identifier
-
-							if (currentReference.Count > 0)
+							if (tokenizer.Current.Text == "*" &&
+								currentReference.Count > 0 &&
+								currentReference.Last().Text == ".")
 							{
-								references.Add(currentReference);
+								// e.g. p.*
+								currentReference.Add(tokenizer.Current);
+							}
+							else
+							{
+								// signals the end of an identifier
 
-								currentReference = new List<TSQLToken>();
+								if (currentReference.Count > 0)
+								{
+									references.Add(currentReference);
+
+									currentReference = new List<TSQLToken>();
+								}
 							}
 
 							break;

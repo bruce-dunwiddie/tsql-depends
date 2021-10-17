@@ -6,6 +6,6 @@
     "win": {}
   },
   "dependencies": {
-    "TSQL.Parser": "1.3.0"
+    "TSQL.Parser": "1.5.3"
   }
 }

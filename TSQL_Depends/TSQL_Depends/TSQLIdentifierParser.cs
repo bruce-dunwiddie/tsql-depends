@@ -33,7 +33,10 @@ namespace TSQL.Depends
 				.Reverse()
 				.GetEnumerator();
 
-			if (partList.MoveNext())
+			if (partList.MoveNext() &&
+				// currently, the Finder can return a multicolumn reference, e.g. p.*, as a possible reference
+				// so we need to make sure to throw this out as an object identifier
+				partList.Current.Type == TSQLTokenType.Identifier)
 			{
 				identifier.ObjectName = partList.Current.AsIdentifier.Name;
 			}

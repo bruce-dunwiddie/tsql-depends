@@ -39,8 +39,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>TSQL_Depends.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -81,6 +80,9 @@
     <EmbeddedResource Include="Scripts\GetServers.sql" />
     <EmbeddedResource Include="Scripts\GetSessionProperties.sql" />
     <EmbeddedResource Include="Scripts\GetSynonyms.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TSQL_Depends.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

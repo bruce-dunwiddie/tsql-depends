@@ -48,5 +48,15 @@ namespace Tests
 			Assert.IsNull(identifier.SchemaName);
 			Assert.AreEqual("Product", identifier.ObjectName);
 		}
+
+		[Test]
+		public void TSQLIdentifierParser_MultiColumnReference()
+		{
+			TSQLMultiPartIdentifier identifier = new TSQLIdentifierParser().Parse(
+				"p.*");
+
+			// this should get filtered out and return a null instead
+			Assert.IsNull(identifier);
+		}
 	}
 }

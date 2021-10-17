@@ -19,7 +19,7 @@ namespace Tests
 	[TestFixture]
 	public class ResolverTests
 	{
-		private static TSQLDatabase AdventureWorks =
+		private static readonly TSQLDatabase AdventureWorks =
 			JsonConvert.DeserializeObject<TSQLDatabase>(
 				Resources.AdventureWorks2017);
 
@@ -423,6 +423,74 @@ namespace Tests
 			TSQLObject product = resolvedObjects
 				.Where(obj => obj.Name == "Product")
 				.Single();
+
+			Assert.AreEqual("SampleServer", product.ServerName);
+			Assert.AreEqual("AdventureWorks2017", product.DatabaseName);
+			Assert.AreEqual("Production", product.SchemaName);
+			Assert.AreEqual("Product", product.Name);
+			Assert.AreEqual(TSQLOfficialObjectType.Table, product.Type);
+			Assert.AreEqual(482100758, product.ObjectID);
+		}
+
+		[Test]
+		public void TSQLDependencyParser_MultiColumnReference()
+		{
+			// regression test to make sure that p.* doesn't cause exceptions in the Resolver
+
+			TSQLReferenceFinder finder = new TSQLReferenceFinder();
+
+			List<List<TSQLToken>> references = finder.GetReferences(
+				@"
+				SELECT p.*
+				INTO #products
+				FROM
+				Production.Product p;");
+
+			TSQLReferenceResolver resolver = new TSQLReferenceResolver(
+				new TSQLServerProperties()
+				{
+					CollationIgnoreCase = true
+				},
+				new TSQLSessionProperties()
+				{
+					DatabaseName = "AdventureWorks2017",
+					DefaultSchema = "dbo"
+				},
+				new List<TSQLServer>()
+				{
+
+				},
+				new List<TSQLDatabase>()
+				{
+					AdventureWorks
+				});
+
+			List<TSQLObject> resolvedObjects =
+				references
+					.Select(reference =>
+						resolver.Resolve(reference))
+					.Where(resolvedObject => resolvedObject != null)
+					// only returning ones that are officially handled right now
+					.Where(resolvedObject =>
+						TSQLObjectTypeMapper.HasMapping(resolvedObject.Type))
+					// select distinct
+					.GroupBy(resolvedObject => new
+					{
+						resolvedObject.ServerName,
+						resolvedObject.DatabaseName,
+						resolvedObject.SchemaName,
+						resolvedObject.Name
+					})
+					.Select(uniqueObject => uniqueObject.First())
+					.OrderBy(resolvedObject => resolvedObject.ServerName)
+					.ThenBy(resolvedObject => resolvedObject.DatabaseName)
+					.ThenBy(resolvedObject => resolvedObject.SchemaName)
+					.ThenBy(resolvedObject => resolvedObject.Name)
+					.ToList();
+
+			Assert.AreEqual(1, resolvedObjects.Count);
+
+			TSQLObject product = resolvedObjects[0];
 
 			Assert.AreEqual("SampleServer", product.ServerName);
 			Assert.AreEqual("AdventureWorks2017", product.DatabaseName);

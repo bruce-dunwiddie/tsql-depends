@@ -37,6 +37,15 @@ namespace TSQL.Depends
 				new TSQLIdentifierParser()
 					.Parse(tokens);
 
+			// if we didn't find a valid identifier object, then the identifier will return null
+			// so the resolver needs to then also return null
+			// e.g. p.*
+
+			if (identifier == null)
+			{
+				return null;
+			}
+
 			if (identifier.ServerName != null)
 			{
 				TSQLServer referencedServer = Servers

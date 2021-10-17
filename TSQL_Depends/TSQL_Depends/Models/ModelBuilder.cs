@@ -190,7 +190,7 @@ namespace TSQL.Depends.Models
 
 		// https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=sql-server-ver15
 
-		private static Dictionary<string, TSQLOfficialObjectType> objectTypeParseMappings = new Dictionary<string, TSQLOfficialObjectType>()
+		private static readonly Dictionary<string, TSQLOfficialObjectType> objectTypeParseMappings = new Dictionary<string, TSQLOfficialObjectType>()
 			{
 				{"AF", TSQLOfficialObjectType.CLRAggregateFunction},
 				{"C", TSQLOfficialObjectType.CheckConstraint},
