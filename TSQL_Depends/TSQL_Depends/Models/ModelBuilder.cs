@@ -47,14 +47,22 @@ namespace TSQL.Depends.Models
 
 		public List<TSQLServer> GetServers()
 		{
-			return GetModelList<TSQLServer>(
-				Script.GetServers,
-				(reader, model) =>
-				{
-					model.Name = reader["server_name"].ToString();
+			try
+			{
+				return GetModelList<TSQLServer>(
+					Script.GetServers,
+					(reader, model) =>
+					{
+						model.Name = reader["server_name"].ToString();
 
-					model.IsLinked = (bool)reader["is_linked"];
-				});
+						model.IsLinked = (bool)reader["is_linked"];
+					});
+			}
+			catch (SqlException exception) when (exception.Message.ToLower()
+				                                     .Contains("invalid object name 'sys.servers'"))
+			{
+				return new List<TSQLServer>();
+			}
 		}
 
 		public List<TSQLDatabase> GetDatabases()
